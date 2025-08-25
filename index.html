@@ -61,10 +61,15 @@
       display: none;
       margin-top: 20px;
     }
-    iframe, video {
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    video {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%; 
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
+
+    
   </style>
 </head>
 <body>
@@ -73,7 +78,7 @@
   <button onclick="showVideo()">Показать видео 🎥</button>
   
  <div id="videoContainer">
-    <video width="560" height="315" controls>
+    <video id="myVideo" autoplay muted playsinline>
       <source src="video.mp4" type="video/mp4">
       Твой браузер не поддерживает видео.
     </video>
@@ -110,7 +115,10 @@
     }
     
     function showVideo() {
-      document.getElementById("videoContainer").style.display = "block";
+      const container = document.getElementById("videoContainer");
+      container.style.display = "block";
+      const video = document.getElementById("myVideo");
+      video.play();
     }
   </script>
 </body>
